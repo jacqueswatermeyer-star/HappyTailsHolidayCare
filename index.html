@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#E83E8C">
+<title>Happy Tails Holiday Care | Pretoria</title>
+<style>
+:root {
+--magenta: #E83E8C;
+--gold: #F5C542;
+--green: #087F5B;
+--blue: #168BDF;
+--orange: #FF6B35;
+--ink: #172033;
+--muted: #5b6475;
+--paper: #fffaf5;
+--line: #eadfe8;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.55; }
+a { color: #075ca8; }
+button, .button { display: inline-block; border: 0; border-radius: 999px; padding: 13px 19px; font-weight: 700; text-decoration: none; cursor: pointer; background: var(--green); color: white; }
+button:hover, .button:hover { filter: brightness(.94); }
+.button.secondary { background: var(--blue); }
+.button.pink { background: var(--magenta); }
+header { background: linear-gradient(115deg, var(--magenta), var(--orange)); color: white; padding: 16px 5vw 58px; position: relative; overflow: hidden; }
+nav { max-width: 1100px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+nav .brand { font-size: 1.1rem; font-weight: 900; display: flex; align-items: center; gap: 10px; }
+nav .links { display: flex; gap: 16px; flex-wrap: wrap; }
+nav a { color: white; text-decoration: none; font-weight: 700; font-size: .95rem; }
+.hero { max-width: 1100px; margin: 45px auto 0; display: grid; grid-template-columns: 1.35fr .65fr; gap: 30px; align-items: center; }
+.eyebrow { text-transform: uppercase; letter-spacing: .12em; font-weight: 800; font-size: .8rem; }
+.hero h1 { font-size: clamp(2.3rem, 6vw, 4.5rem); line-height: 1.02; margin: .35em 0; }
+.hero p { font-size: 1.15rem; max-width: 650px; }
+.hero-art {
+background: var(--gold);
+color: var(--ink);
+border: 5px solid white;
+border-radius: 42% 58% 49% 51%;
+padding: 30px 20px;
+text-align: center;
+transform: rotate(3deg);
+box-shadow: 0 18px 35px #8a194b40;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.hero-art svg { width: 110px; height: 110px; margin-bottom: 10px; }
+.hero-art strong { display: block; font-size: 1.35rem; margin-top: 8px; line-height: 1.2; color: #172033; }
+.spark { color: var(--gold); }
+main { max-width: 1100px; margin: auto; padding: 35px 5vw 70px; }
+section { padding: 28px 0; scroll-margin-top: 20px; }
+.section-head { max-width: 720px; margin-bottom: 20px; }
+h2 { font-size: clamp(1.7rem, 4vw, 2.45rem); line-height: 1.1; margin: 0 0 10px; }
+h3 { margin: .3rem 0 .45rem; }
+p { margin: .45rem 0 1rem; }
+.muted { color: var(--muted); }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.card { background: white; border: 1px solid var(--line); border-radius: 20px; padding: 20px; box-shadow: 0 8px 22px #17203308; }
+.card .emoji { font-size: 1.8rem; }
+.price { font-size: 1.8rem; font-weight: 900; color: var(--green); }
+.small { font-size: .9rem; }
+.pill { display: inline-block; background: #fff0f7; color: #9b1556; border-radius: 999px; padding: 5px 10px; font-size: .8rem; font-weight: 800; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.formgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+label { display: block; font-weight: 700; font-size: .93rem; margin-bottom: 5px; }
+input, select, textarea { width: 100%; padding: 12px; border: 1px solid #cfc7d0; border-radius: 10px; font: inherit; background: white; color: var(--ink); }
+textarea { min-height: 95px; resize: vertical; }
+.full { grid-column: 1 / -1; }
+.notice { background: #fff4d1; border-left: 5px solid var(--gold); padding: 14px 16px; border-radius: 10px; }
+.calendar-wrapper {
+position: relative;
+width: 100%;
+background: white;
+border-radius: 16px;
+border: 1px solid var(--line);
+overflow: hidden;
+box-shadow: 0 8px 22px #17203308;
+}
+.calendar { width: 100%; height: 560px; border: 0; background: white; }
+.calendar-mobile-fallback {
+display: none;
+padding: 24px;
+text-align: center;
+background: white;
+}
+.contract-scroll-box {
+max-height: 260px;
+overflow-y: auto;
+border: 1px solid var(--line);
+background: white;
+padding: 16px;
+border-radius: 14px;
+box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);
+}
+.contract h3 { color: var(--green); }
+.contract ol { padding-left: 20px; }
+.contract li { margin: .35rem 0; }
+footer { background: #172033; color: white; padding: 28px 5vw; }
+footer .inner { max-width: 1100px; margin: auto; display: flex; gap: 18px; justify-content: space-between; flex-wrap: wrap; }
+.palette { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 14px; }
+.swatch { width: 40px; height: 40px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 0 1px #ddd; }
+@media(max-width: 760px) {
+.hero { grid-template-columns: 1fr; margin-top: 30px; }
+.hero-art { max-width: 270px; margin: 5px auto; }
+.cards { grid-template-columns: 1fr; }
+.two-col { grid-template-columns: 1fr; }
+.formgrid { grid-template-columns: 1fr; }
+.full { grid-column: auto; }
+.calendar { height: 400px; }
+nav { align-items: flex-start; }
+nav .links { gap: 10px; }
+}
+@media print {
+header, nav, footer, .no-print, #booking, #availability, #services { display: none !important; }
+body { background: white; }
+.contract-scroll-box { max-height: none; overflow: visible; border: 0; padding: 0; }
+main { padding: 0; max-width: none; }
+}
+</style>
+</head>
+<body>
+<header>
+<nav aria-label="Main navigation">
+<div class="brand">
+<!-- Embedded Inline SVG Logo (Header) -->
+<svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50" cy="50" r="48" fill="#FFFFFF"/>
+<ellipse cx="32" cy="30" rx="9" ry="13" fill="#E83E8C"/>
+<ellipse cx="68" cy="30" rx="9" ry="13" fill="#E83E8C"/>
+<ellipse cx="18" cy="50" rx="8" ry="11" fill="#FF6B35"/>
+<ellipse cx="82" cy="50" rx="8" ry="11" fill="#FF6B35"/>
+<path d="M 50,42 C 32,42 22,58 26,76 C 29,88 41,92 50,92 C 59,92 71,88 74,76 C 78,58 68,42 50,42 Z" fill="#087F5B"/>
+<path d="M 42,70 Q 50,78 58,70" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" fill="none"/>
+</svg>
+Happy Tails Holiday Care
+</div>
+<div class="links">
+<a href="#services">Services</a>
+<a href="#availability">Availability</a>
+<a href="#booking">Book</a>
+<a href="#agreement">Agreement</a>
+</div>
+</nav>
+<div class="hero">
+<div>
+<div class="eyebrow">Pretoria • Holiday pet care</div>
+<h1>You Go. They’re Loved. <span class="spark">You Come Home to Happy Tails.</span></h1>
+<p>Kind, reliable visits that help your pets stay comfortable in their own home while your family is away.</p>
+<a class="button" href="#booking">Request a booking</a>
+<a class="button secondary" href="#services">See services & prices</a>
+<p class="small">Bookings, payments and home access are supervised by a parent/guardian. We confirm every request before it becomes a booking.</p>
+</div>
+
+<div class="hero-art" aria-label="Happy Tails colorful logo badge">
+<!-- Embedded Embedded Inline SVG Logo (Hero Badge) -->
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50" cy="50" r="48" fill="#FFFFFF" stroke="#E83E8C" stroke-width="3"/>
+<ellipse cx="32" cy="28" rx="9" ry="13" fill="#E83E8C" transform="rotate(-10 32 28)"/>
+<ellipse cx="68" cy="28" rx="9" ry="13" fill="#E83E8C" transform="rotate(10 68 28)"/>
+<ellipse cx="18" cy="48" rx="8" ry="11" fill="#FF6B35" transform="rotate(-20 18 48)"/>
+<ellipse cx="82" cy="48" rx="8" ry="11" fill="#FF6B35" transform="rotate(20 82 48)"/>
+<path d="M 50,40 C 32,40 22,56 26,74 C 29,86 41,90 50,90 C 59,90 71,86 74,74 C 78,56 68,40 50,40 Z" fill="#087F5B"/>
+<!-- Happy Smile -->
+<path d="M 40,68 Q 50,78 60,68" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" fill="none"/>
+<!-- Heart Nose -->
+<path d="M 50,56 L 46,50 C 44,47 48,44 50,47 C 52,44 56,47 54,50 Z" fill="#F5C542"/>
+</svg>
+<strong>HAPPY PETS.<br>HAPPY HOLIDAYS.</strong>
+<div class="palette">
+<span class="swatch" style="background:#E83E8C"></span>
+<span class="swatch" style="background:#F5C542"></span>
+<span class="swatch" style="background:#087F5B"></span>
+<span class="swatch" style="background:#168BDF"></span>
+<span class="swatch" style="background:#FF6B35"></span>
+</div>
+</div>
+</div>
+</header>
+<main>
+<section id="services">
+<div class="section-head">
+<div class="pill">Simple, caring, local</div>
+<h2>Care that feels like home.</h2>
+<p class="muted">Starter prices for selected Pretoria neighbourhoods. Final quotes depend on travel distance, pet needs and confirmed visit length.</p>
+</div>
+<div class="cards">
+<article class="card">
+<div class="emoji">🐶</div>
+<h3>One happy visit</h3>
+<div class="price">R120</div>
+<p>One visit of up to 30 minutes for feeding, fresh water, a check-in and companionship.</p>
+<p class="small muted">Per household, per visit; one or two familiar pets.</p>
+</article>
+<article class="card">
+<div class="emoji">🌞</div>
+<h3>Two visits a day</h3>
+<div class="price">R220</div>
+<p>Morning and late-afternoon visits, with feeding and fresh water at the agreed times.</p>
+<p class="small muted">Per household, per day; up to two pets.</p>
+</article>
+<article class="card">
+<div class="emoji">💚</div>
+<h3>Extra pet</h3>
+<div class="price">+R25</div>
+<p>Daily care for each additional pet in the same home, where the needs are manageable.</p>
+<p class="small muted">Per extra pet, per visit. Confirm before booking.</p>
+</article>
+<article class="card">
+<div class="emoji">🌿</div>
+<h3>Plants & mail</h3>
+<div class="price">+R20</div>
+<p>Water a few agreed indoor/outdoor plants and bring mail or small parcels inside.</p>
+<p class="small muted">Per visit, by prior agreement.</p>
+</article>
+<article class="card">
+<div class="emoji">📸</div>
+<h3>Happy update</h3>
+<div class="price">Included</div>
+<p>A brief WhatsApp message and photo update after the visit, if you consent to messaging.</p>
+<p class="small muted">Photos shared privately with the client.</p>
+</article>
+<article class="card">
+<div class="emoji">💊</div>
+<h3>Medication</h3>
+<div class="price">By agreement</div>
+<p>Only where instructions are clear, the task is safe and the sitter has agreed in advance. No injections or complex treatment.</p>
+<p class="small muted">Medicine, written instructions and vet details must be supplied.</p>
+</article>
+</div>
+<p class="notice" style="margin-top:20px;"><strong>Fair and safe:</strong> We do not provide emergency veterinary care, overnight sitting or dog walks under this starter package. We’ll discuss special needs before accepting a booking. A responsible adult supervises customer communication, payment, contracts and property access.</p>
+</section>
+<section id="availability">
+<div class="section-head">
+<h2>Check dates</h2>
+<p class="muted">This calendar is for viewing availability only. A date is not reserved until an adult confirms your booking directly.</p>
+</div>
+<div class="calendar-wrapper">
+<iframe class="calendar" title="Happy Tails availability calendar" src="https://calendar.google.com/calendar/embed?src=3402dc14dfda1192a45364bb55394cc54f933bc2d20e0181c5800240c79031ed%40group.calendar.google.com&ctz=Africa%2FJohannesburg" loading="lazy"></iframe>
+<div id="calendarFallback" class="calendar-mobile-fallback">
+<p>Having trouble viewing the embedded calendar on your mobile device?</p>
+<a class="button secondary" href="https://calendar.google.com/calendar/embed?src=3402dc14dfda1192a45364bb55394cc54f933bc2d20e0181c5800240c79031ed%40group.calendar.google.com&ctz=Africa%2FJohannesburg" target="_blank" rel="noopener">Open Calendar in Full Screen</a>
+</div>
+</div>
+</section>
+<section id="booking">
+<div class="section-head">
+<h2>Request a booking</h2>
+<p class="muted">Tell us what your pets need. A parent/guardian will review the request and contact you to confirm price, access, and availability.</p>
+</div>
+<div class="two-col">
+<div class="card">
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { formSubmittedSuccessfully(); }"></iframe>
+
+<form id="googleForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdIVGr8M6Sg0TE6I3zAtoF6C19gzeicpk8rMWbznBxebcewSw/formResponse" method="POST" target="hidden_iframe">
+<div class="formgrid">
+<div><label for="client">Owner / Client Name *</label><input id="client" name="entry.304268801" autocomplete="name" required></div>
+<div><label for="address">Street Address *</label><input id="address" name="entry.1390512486" autocomplete="street-address" required placeholder="Service address in Pretoria"></div>
+<div><label for="phone">WhatsApp Number *</label><input id="phone" name="entry.923296871" type="tel" autocomplete="tel" required></div>
+<div><label for="start">First Date *</label><input id="start" name="entry.949489994" type="date" required></div>
+<div><label for="end">Last Date *</label><input id="end" name="entry.1664461957" type="date" required></div>
+<div><label for="visits">Visits per Day</label><select id="visits" name="entry.1755881282"><option>1 visit</option><option>2 visits</option></select></div>
+<div><label for="pets">Number of Pets</label><select id="pets" name="entry.975924094"><option>1 pet</option><option>2 pets</option><option>3 pets</option><option>4+ pets (quote needed)</option></select></div>
+<div class="full"><label for="needs">Care Notes & Feeding Routine *</label><textarea id="needs" name="entry.1675260786" required placeholder="Pet names, feeding routine, and care notes. Do not include ID numbers or alarm codes."></textarea></div>
+<div class="full">
+<label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+<input type="checkbox" id="consent" required style="width:auto; margin:0;"> I agree to the service agreement and privacy terms.
+</label>
+</div>
+<div class="full"><button type="submit">Submit Booking Request</button></div>
+</div>
+</form>
+<p id="formStatus" class="small muted" role="status" style="margin-top:10px;"></p>
+</div>
+<div class="card">
+<h3>Direct Google Sheets Sync</h3>
+<p>When you click submit, your information flows directly into your connected Google Form and populates your Google Sheet instantly.</p>
+<p><strong>Destination Email:</strong> <span id="emailText">jacques.watermeyer@gmail.com</span></p>
+<p class="small muted">We review all requests promptly and respond via WhatsApp or email to confirm your booking.</p>
+</div>
+</div>
+</section>
+<section id="agreement">
+<div class="section-head">
+<h2>Simple service agreement</h2>
+<p class="muted">Review the terms below. Click the agreement button for quick sign-off.</p>
+</div>
+
+<div class="contract-scroll-box" id="contractText">
+<div class="contract">
+<h3>Happy Tails Holiday Care — Pet-Sitting Service Agreement</h3>
+<p><strong>Slogan:</strong> You Go. They’re Loved. You Come Home to Happy Tails.</p>
+<p><strong>1. Agreed care:</strong> We will provide only the services and visit times agreed in writing: feeding and fresh water, companionship, basic tidy-up of ordinary pet mess, and agreed plant watering/mail collection. Medication is provided only if agreed beforehand with clear written instructions.</p>
+<p><strong>2. Price and payment:</strong> One visit of up to 30 minutes: R120. Two visits per day: R220. Extra pet: R25 per pet per visit. Plant/mail add-on: R20 per visit. A parent/guardian confirms total payment before work starts.</p>
+<p><strong>3. Owner responsibilities:</strong> The owner will provide accurate care information, sufficient food/supplies, vet details, and safe access instructions.</p>
+<p><strong>4. Emergencies:</strong> If a pet appears unwell, the sitter will contact the owner/emergency contact promptly. If unreachable, the adult supervisor may arrange veterinary assistance at the owner's expense.</p>
+<p><strong>5. Privacy notice (POPIA):</strong> We collect only relevant details (name, contact, address, pet routine, emergency contact) to deliver the requested service and manage bookings securely.</p>
+</div>
+</div>
+<div class="no-print" style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+<button type="button" class="pink" onclick="agreeAndSign()">✅ I agree & accept terms</button>
+<button type="button" onclick="window.print()">Print agreement / Save PDF</button>
+<button type="button" class="secondary" onclick="copyAgreement()">Copy text</button>
+</div>
+</section>
+</main>
+<footer>
+<div class="inner">
+<div style="display:flex; align-items:center; gap:10px;">
+<!-- Embedded Inline SVG Logo (Footer) -->
+<svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50" cy="50" r="48" fill="#FFFFFF"/>
+<ellipse cx="32" cy="30" rx="9" ry="13" fill="#E83E8C"/>
+<ellipse cx="68" cy="30" rx="9" ry="13" fill="#E83E8C"/>
+<ellipse cx="18" cy="50" rx="8" ry="11" fill="#FF6B35"/>
+<ellipse cx="82" cy="50" rx="8" ry="11" fill="#FF6B35"/>
+<path d="M 50,42 C 32,42 22,58 26,76 C 29,88 41,92 50,92 C 59,92 71,88 74,76 C 78,58 68,42 50,42 Z" fill="#087F5B"/>
+<path d="M 42,70 Q 50,78 58,70" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" fill="none"/>
+</svg>
+<div>
+<strong>Happy Tails Holiday Care</strong><br>
+<span class="small">Kind care. Happy tails. Peace of mind.</span>
+</div>
+</div>
+<div class="small">
+Pretoria, South Africa • Parent-supervised bookings<br>
+© <span id="year"></span> Happy Tails Holiday Care
+</div>
+</div>
+</footer>
+<script>
+const BUSINESS_EMAIL = "jacques.watermeyer@gmail.com";
+document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("emailText").textContent = BUSINESS_EMAIL;
+let submitted = false;
+function agreeAndSign() {
+const checkbox = document.getElementById("consent");
+checkbox.checked = true;
+alert("Agreement accepted! The consent box in the booking form has been checked for you.");
+document.getElementById("booking").scrollIntoView({ behavior: 'smooth' });
+}
+document.getElementById("googleForm").addEventListener("submit", function(e){
+submitted = true;
+document.getElementById("formStatus").textContent = "Submitting your booking request to Google Sheets...";
+});
+function formSubmittedSuccessfully() {
+document.getElementById("googleForm").reset();
+document.getElementById("formStatus").textContent = "Success! Your booking request has been saved to the spreadsheet.";
+submitted = false;
+}
+function copyAgreement(){
+const text = document.getElementById("contractText").innerText;
+if(navigator.clipboard && window.isSecureContext){
+navigator.clipboard.writeText(text).then(()=>alert("Agreement copied."),()=>alert("Copy failed. Please select text manually."));
+} else {
+alert("Use your browser's Print command to save the agreement as a PDF.");
+}
+}
+window.addEventListener('DOMContentLoaded', () => {
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (isMobile) {
+const fallback = document.getElementById('calendarFallback');
+if (fallback) fallback.style.display = 'block';
+}
+});
+</script>
+</body>
+</html>
